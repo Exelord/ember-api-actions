@@ -22,7 +22,7 @@ export default Mixin.create({
         return this.get(relation.model).query(relation.relation, this.get(relation.params));
       }));
 
-      this.addObserver(`${relation.params}Changed`, relation.params, function() {
+      this.addObserver(relation.params, function() {
         this.get(relationName).reload(this.get(relation.params));
       });
     });
